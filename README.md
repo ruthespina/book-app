@@ -1,59 +1,68 @@
-# BookApp
+# 📚 Book App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.32.
+A full-stack web application for managing a personal book collection.
 
-## Development server
+Users can add, view, edit, and delete books through a simple and responsive interface.
 
-To start a local development server, run:
+## ✨ Features
+
+- View book collection
+- Add new books
+- Edit existing books
+- Delete books
+- Store book title, author, and publication date
+- Responsive user interface
+- Dark mode
+- Quotes section
+- REST API integration
+
+## 🛠️ Technologies
+
+### Frontend
+- Angular
+- TypeScript
+- HTML
+- CSS
+
+### Backend
+- ASP.NET Core Web API
+- C#
+- REST API
+
+### Deployment
+- Netlify — Frontend
+- Render — Backend
+- GitHub — Source control
+
+## 🚀 Running Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the Angular development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🔗 Backend
 
-```bash
-ng generate --help
-```
+The frontend communicates with a separately deployed ASP.NET Core Web API.
 
-## Building
+## 📌 Project Purpose
 
-To build the project run:
+This project demonstrates full-stack web development using Angular and ASP.NET Core, including CRUD operations, API integration, Git version control, and cloud deployment.
+## 🌐 Live Demo
 
-```bash
-ng build
-```
+Frontend: https://dulcet-centaur-d1422b.netlify.app
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Backend API: https://book-api-chow.onrender.com
