@@ -80,7 +80,7 @@ export class App implements OnInit {isDarkMode = false;toggleTheme() {
   showQuoteForm = false;
   editingQuoteId: number | null = null;
 
-  private apiUrl = 'http://localhost:5174/api';
+  private apiUrl = 'https://book-api-chow.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
