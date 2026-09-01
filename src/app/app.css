@@ -157,4 +157,17 @@ textarea {
   .quote-item {
     padding: 18px;
   }
+}/* Fix date field visibility in Dark Mode */
+:host-context(body.dark-mode) input[type="date"] {
+  background-color: #f5f5f5 !important;
+  color: #212529 !important;
+  border-color: #777 !important;
+  color-scheme: light !important;
+}
+
+:host-context(body.dark-mode)
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1 !important;
+  filter: none !important;
+  cursor: pointer;
 }
