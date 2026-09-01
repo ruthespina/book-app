@@ -1,8 +1,6 @@
 <div class="container py-4">
 
-  <!-- =========================
-       LOGIN / REGISTER
-       ========================= -->
+  <!-- LOGIN / REGISTER -->
   <div
     *ngIf="!isLoggedIn"
     class="card shadow-sm p-4 mx-auto"
@@ -62,9 +60,7 @@
   </div>
 
 
-  <!-- =========================
-       LOGGED IN APP
-       ========================= -->
+  <!-- LOGGED IN APP -->
   <div *ngIf="isLoggedIn">
 
     <!-- NAVIGATION -->
@@ -94,7 +90,6 @@
       >
         <div class="navbar-nav ms-auto gap-md-2">
 
-          <!-- BOOKS -->
           <button
             class="btn btn-link nav-link"
             (click)="showBooks()"
@@ -103,7 +98,6 @@
             Books
           </button>
 
-          <!-- QUOTES -->
           <button
             class="btn btn-link nav-link"
             (click)="showQuotes()"
@@ -112,7 +106,6 @@
             My Quotes
           </button>
 
-          <!-- DARK / LIGHT MODE -->
           <button
             class="btn btn-outline-secondary ms-md-2"
             (click)="toggleTheme()"
@@ -124,7 +117,6 @@
             {{ isDarkMode ? ' Light Mode' : ' Dark Mode' }}
           </button>
 
-          <!-- LOGOUT -->
           <button
             class="btn btn-outline-danger ms-md-2"
             (click)="logout()"
@@ -138,9 +130,7 @@
     </nav>
 
 
-    <!-- =========================
-         BOOKS VIEW
-         ========================= -->
+    <!-- BOOKS VIEW -->
     <div *ngIf="currentView === 'books'">
 
       <div
@@ -164,9 +154,7 @@
       </div>
 
 
-      <!-- =========================
-           ADD / EDIT BOOK FORM
-           ========================= -->
+      <!-- ADD / EDIT BOOK FORM -->
       <div
         class="card shadow-sm p-4 mb-4"
         *ngIf="showForm"
@@ -205,33 +193,27 @@
         </div>
 
 
-        <!-- =========================
-             PUBLICATION DATE
-             ========================= -->
+        <!-- PUBLICATION DATE -->
         <div class="mb-3">
-
           <label class="form-label">
             Publication Date
           </label>
 
-          <div class="custom-date-picker">
-
-            <!-- DISPLAYED DATE -->
+          <div
+            class="custom-date-picker"
+            (click)="datePicker.showPicker()"
+          >
             <span
               class="custom-date-text"
               [class.date-placeholder]="!publicationDate"
-              (click)="datePicker.showPicker()"
             >
               {{ publicationDate || 'mm/dd/yyyy' }}
             </span>
 
-            <!-- CALENDAR ICON -->
             <i
               class="fa-regular fa-calendar custom-date-icon"
-              (click)="datePicker.showPicker()"
             ></i>
 
-            <!-- REAL DATE INPUT -->
             <input
               #datePicker
               class="native-date-overlay"
@@ -239,12 +221,11 @@
               [(ngModel)]="publicationDate"
               aria-label="Publication Date"
             />
-
           </div>
         </div>
 
 
-        <!-- FORM BUTTONS -->
+        <!-- BOOK FORM BUTTONS -->
         <div class="d-flex gap-2 flex-wrap">
 
           <button
@@ -263,13 +244,10 @@
           </button>
 
         </div>
-
       </div>
 
 
-      <!-- =========================
-           BOOK LIST
-           ========================= -->
+      <!-- BOOK LIST -->
       <div
         class="row g-3"
         *ngIf="books.length > 0"
@@ -281,7 +259,6 @@
         >
 
           <div class="card h-100 shadow-sm">
-
             <div class="card-body">
 
               <h3 class="card-title h5">
@@ -328,16 +305,13 @@
     </div>
 
 
-    <!-- =========================
-         MY QUOTES VIEW
-         ========================= -->
+    <!-- MY QUOTES VIEW -->
     <div *ngIf="currentView === 'quotes'">
 
       <div
         class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4"
       >
         <div>
-
           <h2 class="mb-1">
             <i class="fa-solid fa-quote-left me-2"></i>
             My Quotes
@@ -346,7 +320,6 @@
           <p class="text-muted mb-0">
             A collection of your favorite quotes.
           </p>
-
         </div>
 
         <button
@@ -356,13 +329,10 @@
           <i class="fa-solid fa-plus me-1"></i>
           Add Quote
         </button>
-
       </div>
 
 
-      <!-- =========================
-           ADD / EDIT QUOTE FORM
-           ========================= -->
+      <!-- ADD / EDIT QUOTE FORM -->
       <div
         class="card shadow-sm p-4 mb-4"
         *ngIf="showQuoteForm"
@@ -372,9 +342,7 @@
           {{ editingQuoteId === null ? 'Add a New Quote' : 'Edit Quote' }}
         </h3>
 
-        <!-- QUOTE -->
         <div class="mb-3">
-
           <label class="form-label">
             Quote
           </label>
@@ -384,13 +352,9 @@
             [(ngModel)]="quoteText"
             placeholder="Enter quote"
           ></textarea>
-
         </div>
 
-
-        <!-- QUOTE AUTHOR -->
         <div class="mb-3">
-
           <label class="form-label">
             Author
           </label>
@@ -401,11 +365,8 @@
             [(ngModel)]="quoteAuthor"
             placeholder="Enter quote author"
           />
-
         </div>
 
-
-        <!-- QUOTE BUTTONS -->
         <div class="d-flex gap-2 flex-wrap">
 
           <button
@@ -424,13 +385,10 @@
           </button>
 
         </div>
-
       </div>
 
 
-      <!-- =========================
-           QUOTE LIST
-           ========================= -->
+      <!-- QUOTE LIST -->
       <div class="row g-3">
 
         <div
@@ -439,7 +397,6 @@
         >
 
           <div class="card h-100 shadow-sm">
-
             <div class="card-body">
 
               <p class="fs-5 fst-italic">
@@ -474,11 +431,9 @@
           </div>
 
         </div>
-
       </div>
 
     </div>
 
   </div>
-
 </div>
