@@ -1,6 +1,8 @@
 <div class="container py-4">
 
-  <!-- LOGIN / REGISTER -->
+  <!-- =========================
+       LOGIN / REGISTER
+       ========================= -->
   <div
     *ngIf="!isLoggedIn"
     class="card shadow-sm p-4 mx-auto"
@@ -60,7 +62,9 @@
   </div>
 
 
-  <!-- LOGGED IN APP -->
+  <!-- =========================
+       LOGGED IN APP
+       ========================= -->
   <div *ngIf="isLoggedIn">
 
     <!-- NAVIGATION -->
@@ -117,7 +121,6 @@
               class="fa-solid"
               [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"
             ></i>
-
             {{ isDarkMode ? ' Light Mode' : ' Dark Mode' }}
           </button>
 
@@ -135,7 +138,9 @@
     </nav>
 
 
-    <!-- BOOKS VIEW -->
+    <!-- =========================
+         BOOKS VIEW
+         ========================= -->
     <div *ngIf="currentView === 'books'">
 
       <div
@@ -159,7 +164,9 @@
       </div>
 
 
-      <!-- BOOK FORM -->
+      <!-- =========================
+           ADD / EDIT BOOK FORM
+           ========================= -->
       <div
         class="card shadow-sm p-4 mb-4"
         *ngIf="showForm"
@@ -168,6 +175,7 @@
           {{ editingId === null ? 'Add a New Book' : 'Edit Book' }}
         </h3>
 
+        <!-- BOOK TITLE -->
         <div class="mb-3">
           <label class="form-label">
             Book Title
@@ -181,6 +189,8 @@
           />
         </div>
 
+
+        <!-- AUTHOR -->
         <div class="mb-3">
           <label class="form-label">
             Author
@@ -194,18 +204,47 @@
           />
         </div>
 
+
+        <!-- =========================
+             PUBLICATION DATE
+             ========================= -->
         <div class="mb-3">
+
           <label class="form-label">
             Publication Date
           </label>
 
-          <input
-            class="form-control"
-            type="date"
-            [(ngModel)]="publicationDate"
-          />
+          <div class="custom-date-picker">
+
+            <!-- DISPLAYED DATE -->
+            <span
+              class="custom-date-text"
+              [class.date-placeholder]="!publicationDate"
+              (click)="datePicker.showPicker()"
+            >
+              {{ publicationDate || 'mm/dd/yyyy' }}
+            </span>
+
+            <!-- CALENDAR ICON -->
+            <i
+              class="fa-regular fa-calendar custom-date-icon"
+              (click)="datePicker.showPicker()"
+            ></i>
+
+            <!-- REAL DATE INPUT -->
+            <input
+              #datePicker
+              class="native-date-overlay"
+              type="date"
+              [(ngModel)]="publicationDate"
+              aria-label="Publication Date"
+            />
+
+          </div>
         </div>
 
+
+        <!-- FORM BUTTONS -->
         <div class="d-flex gap-2 flex-wrap">
 
           <button
@@ -224,10 +263,13 @@
           </button>
 
         </div>
+
       </div>
 
 
-      <!-- BOOK LIST -->
+      <!-- =========================
+           BOOK LIST
+           ========================= -->
       <div
         class="row g-3"
         *ngIf="books.length > 0"
@@ -279,12 +321,16 @@
 
             </div>
           </div>
+
         </div>
       </div>
+
     </div>
 
 
-    <!-- MY QUOTES VIEW -->
+    <!-- =========================
+         MY QUOTES VIEW
+         ========================= -->
     <div *ngIf="currentView === 'quotes'">
 
       <div
@@ -310,10 +356,13 @@
           <i class="fa-solid fa-plus me-1"></i>
           Add Quote
         </button>
+
       </div>
 
 
-      <!-- QUOTE FORM -->
+      <!-- =========================
+           ADD / EDIT QUOTE FORM
+           ========================= -->
       <div
         class="card shadow-sm p-4 mb-4"
         *ngIf="showQuoteForm"
@@ -323,6 +372,7 @@
           {{ editingQuoteId === null ? 'Add a New Quote' : 'Edit Quote' }}
         </h3>
 
+        <!-- QUOTE -->
         <div class="mb-3">
 
           <label class="form-label">
@@ -337,6 +387,8 @@
 
         </div>
 
+
+        <!-- QUOTE AUTHOR -->
         <div class="mb-3">
 
           <label class="form-label">
@@ -352,6 +404,8 @@
 
         </div>
 
+
+        <!-- QUOTE BUTTONS -->
         <div class="d-flex gap-2 flex-wrap">
 
           <button
@@ -370,10 +424,13 @@
           </button>
 
         </div>
+
       </div>
 
 
-      <!-- QUOTE LIST -->
+      <!-- =========================
+           QUOTE LIST
+           ========================= -->
       <div class="row g-3">
 
         <div
@@ -415,10 +472,13 @@
 
             </div>
           </div>
+
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </div>
